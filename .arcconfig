@@ -1,0 +1,5 @@
+{
+    "project.name": "warrior_ipn",
+    "phabricator.uri": "https://phabricator.freelancer.com",
+    "base": "git:merge-base(origin/production), arc:upstream, arc:prompt"
+}

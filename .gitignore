@@ -1,0 +1,10 @@
+/Servers/
+.metadata
+.recommenders
+/WSO\ IPN\ for\ Java/build/
+/WSO\ IPN\ for\ Java/target/
+/WSO\ IPN\ for\ Java/WebContent/
+/WSO\ IPN\ for\ Java/.settings
+/WSO\ IPN\ for\ Java/.project
+/WSO\ IPN\ for\ Java/.classpath
+/WSO\ IPN\ for\ Java/pom.xml

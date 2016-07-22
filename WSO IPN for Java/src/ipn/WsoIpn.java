@@ -37,7 +37,7 @@ public class WsoIpn {
 	//7. Once hashed, convert to hexadicemal string and compare with the signature from the parameter map
 	public boolean isValid(){
 		if(!ipnData.containsKey("WSO_SIGNATURE")){
-			throw new NoSignatureException("IPN contains no signature. Make sure you have set a private key.");
+			return false;
 		}
 		if(secretKey == null){
 			return false;

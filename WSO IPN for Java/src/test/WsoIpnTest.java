@@ -10,7 +10,6 @@ import java.util.Map;
 import org.junit.Test;
 
 import ipn.NoAffiliateException;
-import ipn.NoSignatureException;
 import ipn.WsoIpn;
 
 public class WsoIpnTest {
@@ -137,15 +136,6 @@ public class WsoIpnTest {
 		WsoIpn ipn = new WsoIpn(paramMap);
 		assertFalse(ipn.isValid());
 	}
-	
-	@Test(expected=NoSignatureException.class)
-	public void testNoSignature() {
-		Map<String, String> paramMap = new HashMap<String,String>();
-		String secretKey = "secret";
-		WsoIpn ipn = new WsoIpn(paramMap, secretKey);
-		assertFalse(ipn.isValid());
-	}	
-	
 	
 	@Test
 	public void testNoAffiliate(){

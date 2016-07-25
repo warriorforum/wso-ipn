@@ -1,12 +1,12 @@
 /Servers/
 .metadata
 .recommenders
-/WSO\ IPN\ for\ Java/build/
-/WSO\ IPN\ for\ Java/target/
-/WSO\ IPN\ for\ Java/WebContent/
-/WSO\ IPN\ for\ Java/.settings
-/WSO\ IPN\ for\ Java/.project
-/WSO\ IPN\ for\ Java/.classpath
-/WSO\ IPN\ for\ Java/pom.xml
+/WSO_IPN_for_Java/build/
+/WSO_IPN_for_Java/target/
+/WSO_IPN_for_Java/WebContent/
+/WSO_IPN_for_Java/.settings
+/WSO_IPN_for_Java/.project
+/WSO_IPN_for_Java/.classpath
+/WSO_IPN_for_Java/pom.xml
 .arcconfig
 .arclint

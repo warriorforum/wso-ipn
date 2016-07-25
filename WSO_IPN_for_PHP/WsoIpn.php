@@ -35,8 +35,7 @@ class WsoIpn {
             return false;
         }
 
-        $expected_signature =  $this->ipn_data['WSO_SIGNATURE'];
-        return strcmp($expected_signature, $this->get_actual_signature()) == 0;
+        return $this->is_signature_valid();
     }
 
     private function get_actual_signature() {
@@ -45,6 +44,11 @@ class WsoIpn {
         ksort($ipn_data);
         $encoded_data = http_build_query($ipn_data);
         return sha1($encoded_data.$this->secret_key);
+    }
+
+    private function is_signature_valid() {
+        $expected_signature =  $this->ipn_data['WSO_SIGNATURE'];
+        return strcmp($expected_signature, $this->get_actual_signature()) == 0;
     }
 
     private function is_action_valid() {

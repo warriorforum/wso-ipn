@@ -45,12 +45,20 @@ public class WsoIpn {
 		if(!isActionValid()){
 			return false;
 		}
-		String expectedSignature = ipnData.get("WSO_SIGNATURE");
+		
+		return isSignatureValid();
+	}
+	
+	private String getActualSignature(){
 		Map<String,String> sortedMap = new TreeMap<String,String>(ipnData);
 		sortedMap.remove("WSO_SIGNATURE");
 		String encodedData = Encoder.urlEncodeUTF8(sortedMap);
-		String actualignature = HashLib.sha1Hash(encodedData + secretKey);
-		return expectedSignature.equals(actualignature);
+		return HashLib.sha1Hash(encodedData + secretKey);
+	}
+	
+	private boolean isSignatureValid(){
+		String expectedSignature = ipnData.get("WSO_SIGNATURE");
+		return expectedSignature.equals(getActualSignature());
 	}
 
 	private boolean isActionValid(){

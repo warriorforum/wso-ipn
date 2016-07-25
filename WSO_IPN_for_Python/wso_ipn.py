@@ -25,8 +25,7 @@ class WsoIpn(object):
             signature from the parameter map
     '''
     def is_valid(self):
-        data = self.data
-        if data is None or 'WSO_SIGNATURE' not in data:
+        if self.data is None or 'WSO_SIGNATURE' not in self.data:
             return False
 
         if self.secret_key is None:
@@ -34,12 +33,19 @@ class WsoIpn(object):
 
         if not self.is_action_valid():
             return True
-            
-        expected_signature = data.pop('WSO_SIGNATURE')
+
+        return self.is_signature_valid()
+
+    def get_actual_signature(self):
+        data = self.data
+        data.pop('WSO_SIGNATURE')
         sorted_data = sorted(data.items(), key=lambda x: x[0])
         encoded_data = urllib.urlencode(sorted_data)
-        actual_signature = hashlib.sha1(encoded_data + self.secret_key).hexdigest()
-        return expected_signature == actual_signature
+        return hashlib.sha1(encoded_data + self.secret_key).hexdigest()
+
+    def is_signature_valid(self):
+        expected_signature = self.data['WSO_SIGNATURE']
+        return expected_signature == self.get_actual_signature()
 
     def is_action_valid(self):
         action = self.data['WSO_SALE_ACTION']

@@ -10,7 +10,11 @@ This repository contains libraries for different web programming languages for h
 
 *Note: The WsoIpn class was written to include very little to no dependency to third party libraries.*
 
-## WSO IPN for Python
+### WSO IPN for Python
 - This contains the class WsoIpn that accepts the http request's dictionary of parameter and values. The class includes methods for signature validation and getter of necessary IPN data.
 - This also contains unit tests for signature validation and an example of a Listener that uses Flask.
 - The WsoIpn class can be extended to include functionalities (i.e., logging, persistence, etc.) necessary for other programs.
+
+### WSO IPN for PHP
+- This contains the class WsoIpn that accepts the http request's dictionary of parameter and values. The class includes methods for signature validation and getter of necessary IPN data.
+- This also contains unit tests for signature validation and an example of a Listener that uses Flask
